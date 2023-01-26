@@ -1,0 +1,22 @@
+<?php
+
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', 'HomeController@index');
+Route::resource('/tentang', 'AboutController' );
+// Route::resource('/blog-ahha', 'PostController');
+Route::get('/blog-ahha', 'PostController@index');
+Route::get('/blog-ahha/{slug}',[PostController::class, 'show']);
+Route::resource('/kontak-kami', 'FeedbackController');
